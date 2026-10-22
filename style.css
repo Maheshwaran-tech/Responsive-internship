@@ -1,0 +1,90 @@
+/* Responsive Internship Board — no framework */
+:root {
+  color-scheme: light;
+  --navy: #14213d;
+  --blue: #3157d5;
+  --cyan: #21b6c7;
+  --ink: #1c2740;
+  --muted: #64708a;
+  --line: #dce4f2;
+  --surface: #ffffff;
+  --page: #f5f7fc;
+  --focus: #ffb703;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--page); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.55; }
+a { color: inherit; }
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+.skip-link { position: absolute; left: 12px; top: -60px; background: white; color: var(--navy); padding: 10px 14px; z-index: 20; border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+.site-header { background: var(--navy); color: white; }
+.header-inner { min-height: 72px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.brand { text-decoration: none; font-size: 1.35rem; font-weight: 850; letter-spacing: -.04em; }
+.brand span { color: #52d6df; }
+.header-note { color: #d9e3ff; font-size: .92rem; }
+.hero { padding: 54px 0 34px; }
+.eyebrow { color: var(--blue); font-weight: 800; letter-spacing: .13em; font-size: .74rem; margin: 0 0 10px; }
+h1 { color: var(--navy); font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.1; letter-spacing: -.045em; margin: 0; }
+.hero-copy { color: var(--muted); font-size: 1.05rem; max-width: 620px; margin: 14px 0 0; }
+.filters { display: grid; grid-template-columns: minmax(220px, 2fr) minmax(160px, 1fr) minmax(150px, 1fr) auto; align-items: end; gap: 14px; background: white; border: 1px solid var(--line); border-radius: 18px; padding: 20px; box-shadow: 0 8px 26px #14213d0a; }
+.field { display: grid; gap: 7px; margin-bottom: 14px; }
+.filters .field { margin: 0; }
+label { font-size: .85rem; font-weight: 750; color: var(--navy); }
+input, select { width: 100%; min-height: 46px; border: 1px solid #cbd5e5; border-radius: 10px; background: white; padding: 10px 12px; color: var(--ink); }
+input::placeholder { color: #8993a7; }
+.button { min-height: 44px; border: 1px solid var(--blue); background: var(--blue); color: white; border-radius: 10px; padding: 10px 16px; font-weight: 750; }
+.button:hover { background: #2446bb; }
+.button-light { background: #eef2ff; color: var(--blue); border-color: #d6defe; }
+.button-light:hover { background: #e2e8ff; }
+.results-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 32px 0 16px; }
+.results-row h2 { color: var(--navy); margin: 0; font-size: 1.25rem; }
+.results-row p { color: var(--muted); font-size: .9rem; margin: 0; }
+.internship-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.internship-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 21px; display: flex; flex-direction: column; min-height: 280px; box-shadow: 0 6px 20px #14213d08; }
+.card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.domain-tag { background: #eaf9fb; color: #116c78; border-radius: 999px; padding: 5px 9px; font-size: .72rem; font-weight: 800; }
+.work-mode { color: var(--muted); font-size: .78rem; white-space: nowrap; }
+.internship-card h3 { color: var(--navy); font-size: 1.16rem; line-height: 1.3; margin: 18px 0 6px; }
+.location { color: var(--muted); font-size: .9rem; margin: 0 0 14px; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 7px; padding: 0; margin: 0 0 20px; list-style: none; }
+.skill-list li { background: #f1f4fa; border-radius: 7px; padding: 5px 8px; font-size: .77rem; }
+.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 12px; border-top: 1px solid #edf0f6; }
+.openings { color: var(--muted); font-size: .82rem; }
+.status-message, .error-panel { border: 1px dashed #c4cfe2; border-radius: 14px; padding: 24px; text-align: center; color: var(--muted); background: #fff; margin-bottom: 18px; }
+.error-panel { border-color: #e5a4a4; color: #8d2424; }
+.error-panel p { margin-top: 0; }
+[hidden] { display: none !important; }
+.info-strip { margin: 34px 0 48px; padding: 22px; border-radius: 14px; background: #eaf4ff; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--navy); }
+.info-strip span { color: var(--muted); }
+.site-footer { background: #e9edf6; color: var(--muted); padding: 24px 0; font-size: .85rem; }
+dialog { width: min(560px, calc(100% - 28px)); max-height: 88vh; overflow: auto; border: 0; border-radius: 18px; padding: 0; color: var(--ink); box-shadow: 0 24px 90px #101a3380; }
+dialog::backdrop { background: #0b1739a8; }
+.dialog-content { padding: 28px; position: relative; }
+.dialog-content h2 { color: var(--navy); margin: 0 36px 8px 0; }
+.dialog-content h3 { color: var(--navy); margin: 20px 0 10px; }
+.dialog-close { position: absolute; top: 14px; right: 16px; width: 40px; height: 40px; border: 0; border-radius: 10px; background: #edf1fa; font-size: 1.6rem; color: var(--navy); }
+.muted, .form-message { color: var(--muted); }
+.form-message { min-height: 1.5em; font-size: .9rem; }
+@media (max-width: 900px) {
+  .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .internship-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .container { width: min(100% - 28px, 1120px); }
+  .header-inner { min-height: 64px; }
+  .header-note { font-size: .78rem; text-align: right; }
+  .hero { padding: 38px 0 26px; }
+  .filters { grid-template-columns: 1fr; padding: 16px; }
+  .internship-grid { grid-template-columns: 1fr; }
+  .results-row { align-items: flex-start; flex-direction: column; }
+  .internship-card { min-height: 255px; }
+  .dialog-content { padding: 22px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
