@@ -71,6 +71,6 @@ responsive-internship-board/
 5. Wait for deployment, open the generated URL, and test the search and filters.
 6. Record your actual repository and live preview URLs in your task submission.
 
-**Live preview:** Add your published GitHub Pages URL here after deployment.
+**Live preview:** https://maheshwaran-tech.github.io/Responsive-internship/
 
 All listings are fictional sample records for learning purposes. The application form is only a front-end demonstration.
